@@ -5,8 +5,8 @@
 	"description": "telegram",
 	"version": "0.1.0",
 	"license": "MIT",
-	"repository": "git+https://github.com/bitfocus/companion-module-shelly-ws.git",
-	"bugs": "https://github.com/bitfocus/companion-module-shelly-ws/issues",
+	"repository": "git+https://github.com/bitfocus/companion-module-telegram-bot.git",
+	"bugs": "https://github.com/bitfocus/companion-module-telegram-bot/issues",
 	"maintainers": [
 		{
 			"name": "Leon Reucher",

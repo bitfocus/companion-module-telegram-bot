@@ -1,2 +1,2 @@
-# companion-module-shelly-http
+# companion-module-telegram-bot
 See HELP.md and LICENSE

@@ -8,7 +8,7 @@
 	},
 	"repository": {
 		"type": "git",
-		"url": "git+https://github.com/bitfocus/companion-module-shelly-ws.git"
+		"url": "git+https://github.com/bitfocus/companion-module-telegram-bot.git"
 	},
 	"license": "MIT",
 	"dependencies": {

@@ -1,17 +1,22 @@
-## Shelly Plus Module
+## Telegram Bot Module
 
-This module allows adding Shelly Plus devices to your Companion instance. This module is using the local WebSocket of the Shelly devices and no cloud. At the moment the following Shelly products are integrated:
+This module allows interacting with the Telegram Bot API. 
 
-- Shelly Plus 1
-- Shelly Plus 1PM
-- Shelly Plus 2PM (Relay Mode)
-- Shelly Plus 2PM (Roller Mode)
-- Shelly Pro 1
-- Shelly Pro 1PM
-- Shelly Pro 2
-- Shelly Pro 2PM (Relay Mode)
-- Shelly Pro 2PM (Roller Mode)
-- Shelly Pro 3
-- Shelly Pro 4PM
+Currently supported actions:
 
-If you want to control older Shelly devices (without Pro or Plus in the product name) use the shelly-http module.
+- Send a message
+- Send a rolling dice
+- Send a poll
+- Send an image
+- Send an audio file
+- Send a location
+- Send a venue
+- Send a contact
+
+When the bot receives a message, it will update its variables:
+
+- ChatId of the sender
+- Message
+- Timestamp
+
+You can use a trigger on the timestamp and check the message and ChatId in this trigger to react to messages received by the bot.
