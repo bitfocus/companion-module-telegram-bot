@@ -13,11 +13,14 @@ class TelegramInstance extends InstanceBase {
 
 	setupTelegramBot() {
 		if (this.config.apiToken !== undefined && this.config.apiToken != "") {
-			if (this.bot != undefined) {
+			if (this.bot !== undefined) {
 				this.bot.close();
 				delete this.bot();
 			}
 			this.bot = new TelegramBot(this.config.apiToken, { polling: true });
+			this.bot.on('polling_error', (error) => {
+				this.updateStatus(InstanceStatus.ConnectionFailure, error.message);
+			});
 			this.bot.on('message', (msg) => {
 				this.receivedMessage(msg);
 			});
