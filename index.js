@@ -51,7 +51,6 @@ class TelegramInstance extends InstanceBase {
 	}
 
 	receivedMessage(msg) {
-		console.log(msg);
 		this.setVariableValues({
 			lastMessage: msg.text,
 			lastChatId: msg.chat.id,
@@ -106,7 +105,9 @@ class TelegramInstance extends InstanceBase {
 						},
 					],
 					callback: async (action, context) => {
-						this.bot.sendMessage(action.options.chatId, action.options.message, { parse_mode: "HTML" });
+						var parsedChatId = await this.parseVariablesInString(action.options.chatId);
+						var parsedMessage = await this.parseVariablesInString(action.options.message);
+						this.bot.sendMessage(parsedChatId, parsedMessage, { parse_mode: "HTML" });
 					},
 				},
 				sendDice: {
@@ -121,7 +122,8 @@ class TelegramInstance extends InstanceBase {
 						}
 					],
 					callback: async (action, context) => {
-						this.bot.sendDice(action.options.chatId);
+						var parsedChatId = await this.parseVariablesInString(action.options.chatId);
+						this.bot.sendDice(parsedChatId);
 					},
 				},
 				sendPoll: {
@@ -154,8 +156,11 @@ class TelegramInstance extends InstanceBase {
 						},
 					],
 					callback: async (action, context) => {
-						const pollSplit = action.options.pollOptions.split(';');
-						this.bot.sendPoll(action.options.chatId, action.options.pollQuestion, pollSplit, {is_anonymous: action.options.isAnonymous});
+						var parsedChatId = await this.parseVariablesInString(action.options.chatId);
+						var parsedPollOptions = await this.parseVariablesInString(action.options.pollOptions);
+						var parsedPollQuestion = await this.parseVariablesInString(action.options.pollQuestion)
+						const pollSplit = parsedPollOptions.split(';');
+						this.bot.sendPoll(parsedChatId, parsedPollQuestion, pollSplit, {is_anonymous: action.options.isAnonymous});
 					},
 				},
 				sendImage: {
@@ -189,7 +194,10 @@ class TelegramInstance extends InstanceBase {
 						},
 					],
 					callback: async (action, context) => {
-						this.bot.sendPhoto(action.options.chatId, action.options.imageUrl, { caption: action.options.imageCaption, has_spoiler: action.options.spoiler});
+						var parsedChatId = await this.parseVariablesInString(action.options.chatId);
+						var parsedImageCaption = await this.parseVariablesInString(action.options.imageCaption);
+						var parsedImageUrl = await this.parseVariablesInString(action.options.imageUrl);
+						this.bot.sendPhoto(parsedChatId, parsedImageUrl, { caption: parsedImageCaption, has_spoiler: action.options.spoiler});
 					},
 				},
 				sendAudio: {
@@ -216,7 +224,10 @@ class TelegramInstance extends InstanceBase {
 						},
 					],
 					callback: async (action, context) => {
-						this.bot.sendAudio(action.options.chatId, action.options.audioUrl, { caption: action.options.audioCaption });
+						var parsedChatId = await this.parseVariablesInString(action.options.chatId);
+						var parsedAudioUrl = await this.parseVariablesInString(action.options.audioUrl);
+						var parsedAudioCaption = await this.parseVariablesInString(action.options.audioCaption);
+						this.bot.sendAudio(parsedChatId, parsedAudioUrl, { caption: parsedAudioCaption });
 					},
 				},
 				sendLocation: {
@@ -243,7 +254,10 @@ class TelegramInstance extends InstanceBase {
 						},
 					],
 					callback: async (action, context) => {
-						this.bot.sendLocation(action.options.chatId, action.options.latitude, action.options.longitude);
+						var parsedChatId = await this.parseVariablesInString(action.options.chatId);
+						var parsedLatitude = await this.parseVariablesInString(action.options.latitude);
+						var parsedLongitude = await this.parseVariablesInString(action.options.longitude);
+						this.bot.sendLocation(parsedChatId, parsedLatitude, parsedLongitude);
 					},
 				},
 				sendVenue: {
@@ -282,7 +296,12 @@ class TelegramInstance extends InstanceBase {
 						},
 					],
 					callback: async (action, context) => {
-						this.bot.sendVenue(action.options.chatId, action.options.latitude, action.options.longitude, action.options.venueTitle, action.options.venueAddress);
+						var parsedChatId = await this.parseVariablesInString(action.options.chatId);
+						var parsedLatitude = await this.parseVariablesInString(action.options.latitude);
+						var parsedLongitude = await this.parseVariablesInString(action.options.longitude);
+						var parsedVenueTitle = await this.parseVariablesInString(action.options.venueTitle);
+						var parsedVenueAddress = await this.parseVariablesInString(action.options.venueAddress);
+						this.bot.sendVenue(parsedChatId, parsedLatitude, parsedLongitude, parsedVenueTitle, parsedVenueAddress);
 					},
 				},
 				sendContact: {
@@ -315,7 +334,11 @@ class TelegramInstance extends InstanceBase {
 						},
 					],
 					callback: async (action, context) => {
-						this.bot.sendContact(action.options.chatId, action.options.phonenumber, action.options.firstName, {last_name: action.options.lastName});
+						var parsedChatId = await this.parseVariablesInString(action.options.chatId);
+						var parsedPhoneNumber = await this.parseVariablesInString(action.options.phonenumber);
+						var parsedFirstName = await this.parseVariablesInString(action.options.firstName);
+						var parsedLastName = await this.parseVariablesInString(action.options.lastName);
+						this.bot.sendContact(parsedChatId, parsedPhoneNumber, parsedFirstName, {last_name: parsedLastName});
 					},
 				},
 			}
