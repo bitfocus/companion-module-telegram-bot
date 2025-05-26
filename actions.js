@@ -18,13 +18,10 @@ export function setActionDefinitions(instance) {
                 },
             ],
             callback: async (action, context) => {
-                console.log("Ok")
                 var parsedChatId = await instance.parseVariablesInString(action.options.chatId);
-                console.log("Ok2")
                 var parsedMessage = await instance.parseVariablesInString(action.options.message);
-                console.log("Ok3")
-                instance.bot.sendMessage(parsedChatId, parsedMessage, { parse_mode: "HTML" });
-                console.log("Ok4")
+                instance.bot.sendMessage(parsedChatId, parsedMessage, { parse_mode: "html" });
+                console.log(parsedMessage);
             },
         },
         sendDice: {

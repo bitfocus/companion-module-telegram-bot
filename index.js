@@ -13,6 +13,11 @@ class TelegramInstance extends InstanceBase {
 	}
 
 	setupTelegramBot() {
+		this.setVariableValues({
+			lastMessage: "",
+			lastChatId: "",
+			lastTimestamp: "",
+		})
 		if (this.config.apiToken !== undefined && this.config.apiToken != "") {
 			if (this.bot !== undefined) {
 				this.bot.close();
