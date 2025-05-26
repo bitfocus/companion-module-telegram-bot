@@ -1,21 +1,21 @@
 {
-	"name": "telegram-bot",
-	"version": "1.0.0",
-	"main": "index.js",
-	"type": "module",
-	"scripts": {
-		"test": "echo \"Error: no test specified\" && exit 1"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/bitfocus/companion-module-telegram-bot.git"
-	},
-	"license": "MIT",
-	"dependencies": {
-		"@companion-module/base": "~1.7.0",
-		"node-telegram-bot-api": "^0.64.0"
-	},
-	"devDependencies": {
-		"@companion-module/tools": "^1.5.0"
-	}
+  "name": "telegram-bot",
+  "version": "1.0.1",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/bitfocus/companion-module-telegram-bot.git"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "@companion-module/base": "~1.7.0",
+    "node-telegram-bot-api": "^0.64.0"
+  },
+  "devDependencies": {
+    "@companion-module/tools": "^1.5.0"
+  }
 }
