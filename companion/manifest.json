@@ -3,7 +3,7 @@
   "name": "telegram-bot",
   "shortname": "telegram",
   "description": "telegram",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "license": "MIT",
   "repository": "git+https://github.com/bitfocus/companion-module-telegram-bot.git",
   "bugs": "https://github.com/bitfocus/companion-module-telegram-bot/issues",
