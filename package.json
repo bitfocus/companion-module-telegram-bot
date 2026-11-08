@@ -12,10 +12,10 @@
   },
   "license": "MIT",
   "dependencies": {
-    "@companion-module/base": "~1.7.0",
+    "@companion-module/base": "~1.15.1",
     "node-telegram-bot-api": "^0.64.0"
   },
   "devDependencies": {
-    "@companion-module/tools": "^2.8.0"
+    "@companion-module/tools": "^2.9.0"
   }
 }
