@@ -3,7 +3,7 @@
   "name": "telegram-bot",
   "shortname": "telegram",
   "description": "telegram",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "license": "MIT",
   "repository": "git+https://github.com/bitfocus/companion-module-telegram-bot.git",
   "bugs": "https://github.com/bitfocus/companion-module-telegram-bot/issues",
@@ -15,10 +15,13 @@
   ],
   "legacyIds": [],
   "runtime": {
-    "type": "node18",
+    "type": "node26",
     "api": "nodejs-ipc",
     "apiVersion": "0.0.0",
-    "entrypoint": "../index.js"
+    "entrypoint": "../index.js",
+    "permissions": {
+      "filesystem": true
+    }
   },
   "manufacturer": "Telegram",
   "products": ["Bot"],
